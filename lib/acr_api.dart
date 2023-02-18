@@ -1,4 +1,4 @@
 library acr_api;
 
-export 'core/ArcApi.dart';
+export 'core/AcrApi.dart';
 export 'objects/Metadata.dart';
