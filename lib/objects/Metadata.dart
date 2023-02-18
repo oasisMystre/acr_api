@@ -2,15 +2,14 @@ import 'package:acr_api/objects/Artist.dart';
 import 'package:acr_api/objects/ExternalMetadata.dart';
 
 class Metadata {
+  final int durationMs;
   final List<Artist> artist;
   final String name, isrc, type;
-  final int durationMs, trackNumber;
   final ExternalMetadata externalMetadata;
 
   const Metadata(
     this.name,
     this.durationMs,
-    this.trackNumber,
     this.isrc,
     this.artist,
     this.externalMetadata,
@@ -20,8 +19,7 @@ class Metadata {
   factory Metadata.fromJson(Map<String, dynamic> data) {
     return Metadata(
       data["name"],
-      data["duration_ms"],
-      data["track_number"],
+      int.parse(data["duration_ms"]),
       data["isrc"],
       List<Artist>.from(
         data["artists"].map((artist) => Artist.fromJson(artist)),
